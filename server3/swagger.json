@@ -1,0 +1,326 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample Petstore server.  You can find \nout more about Swagger at \n[http://swagger.io](http://swagger.io) or on \n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n",
+    "version": "1.0.0",
+    "title": "Swagger Petstore",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/tttdd/TodosAPI/1.0.0",
+  "tags": [
+    {
+      "name": "Todo",
+      "description": "Дела на сегодня",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/todo/delete_todo/{TodoI}": {
+      "delete": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Удаляет задачу",
+        "operationId": "deleteTodo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "TodoId",
+            "in": "path",
+            "description": "Id задачи должно быть возращено",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Задача удаленна",
+            "schema": {
+              "$ref": "#/definitions/deleteTodoResponse"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/todo/get_todo": {
+      "get": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Получает задачки",
+        "operationId": "getTodo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "списочки получены",
+            "schema": {
+              "$ref": "#/definitions/getTodoResponse"
+            }
+          },
+          "505": {
+            "description": "Протокол не поддерживаеться"
+          }
+        }
+      }
+    },
+    "/todo/update_todo/": {
+      "put": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Изменяет задачу",
+        "operationId": "updateTodo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Задача должна быть изменена",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateTodo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Задачи получены",
+            "schema": {
+              "$ref": "#/definitions/updateTodoResponse"
+            }
+          },
+          "505": {
+            "description": "Протокол не поддерживаеться"
+          }
+        }
+      }
+    },
+    "/todo/update_todo?id=100&content=\"Убратьпосуду\"": {
+      "put": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Изменяет задачу",
+        "operationId": "updateTodoParams",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Задачи получены",
+            "schema": {
+              "$ref": "#/definitions/updateTodoResponse"
+            }
+          },
+          "505": {
+            "description": "Протокол не поддерживаеться"
+          }
+        }
+      }
+    },
+    "/todo/add_todo": {
+      "post": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Добавляет задачу в Бд",
+        "description": "Добавляеть задачу в БД",
+        "operationId": "addTodo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addTodo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Задача успешно добаляем",
+            "schema": {
+              "$ref": "#/definitions/addTodoResponse"
+            }
+          },
+          "400": {
+            "description": "Допущена синтаксическая ошибка"
+          },
+          "404": {
+            "description": "Pet not found"
+          }
+        }
+      }
+    },
+    "/todo/all_delete": {
+      "delete": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Удаляет все задачки",
+        "operationId": "allDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "updateTodo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "content": {
+          "type": "string",
+          "example": "Помыть посуду"
+        }
+      }
+    },
+    "addTodoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "content": {
+          "type": "string",
+          "example": "Помыть посуду"
+        }
+      }
+    },
+    "addTodo": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "example": "Помыть посуду"
+        }
+      }
+    },
+    "updateTodoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "content": {
+          "type": "string",
+          "example": "Помыть посуду"
+        }
+      }
+    },
+    "getTodoResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/getTodoResponse_inner"
+      }
+    },
+    "deleteTodoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "deleteTodo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "getTodoResponse_inner": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "content": {
+          "type": "string",
+          "example": "Помыть посуду"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
