@@ -3,8 +3,8 @@ const {Sequelize}=require("sequelize")
 enum sequlizeConst{
   "dbName"="Todo1",
   "userName"="postgres",
-  "password"="admin",
-  "host"="localhost",
+  "password"="060400",
+  "host"="my_db",
   "port"=5432
 }
 
