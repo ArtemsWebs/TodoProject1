@@ -1,0 +1,37 @@
+version: '3.1'
+
+volumes:
+  pg_project:
+
+services:
+  pg_db:
+    container_name: my_db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+    volumes:
+      - pg_project:/var/lib/postgresql/data
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+
+  server:
+    image: ./server
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=Todo1
+    ports:
+      - "5003:5003"
+    depends_on:
+      - pg_db
+
+  client:
+    image: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
