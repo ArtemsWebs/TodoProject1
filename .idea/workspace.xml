@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f311e8de-97fe-4acc-96de-57151fbeb00b" name="Default Changelist" comment="добавленна taxios" />
+    <list default="true" id="f311e8de-97fe-4acc-96de-57151fbeb00b" name="Default Changelist" comment="добавленна taxios">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/client/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server3/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/server3/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server3/src/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server3/src/db.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +58,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\corni\WebstormProjects\proectTodo\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="C:\Project\TodoProject\server3\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Project\TodoProject3\server3\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
